@@ -11,6 +11,7 @@ const Home: NextPage = () => {
       <CssBaseline />
       <NavBar />
       <HeroBanner imageUrl="/images/banner1.jpg" />
+      <Game />
       <Footer />
     </>
   );
