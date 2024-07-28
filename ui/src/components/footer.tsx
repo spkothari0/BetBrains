@@ -44,3 +44,4 @@ export function footer() {
         </Box>
     );
 }
+export default footer;
