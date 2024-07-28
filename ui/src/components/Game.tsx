@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, MenuItem, Button, Typography } from "@mui/material";
+import { Box, MenuItem, Button, Typography, TextField } from "@mui/material";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import QuizTypeSelector from "./QuizTypeSelector";
 import IndividualQuiz from "./IndividualQuiz";
@@ -26,6 +26,9 @@ export default function Game() {
     const [selectedSubject, setSelectedSubject] = useState<string>("");
     const [selectedTopic, setSelectedTopic] = useState<string>("");
     const [selectedQuizType, setSelectedQuizType] = useState<string | null>(null);
+    const [bettingAmount, setBettingAmount] = useState(0);
+    const [isReady, setIsReady] = useState(false);
+    const [finalizeBet, setFinalizeBet] = useState(false);
 
     const handleSubjectChange = (event: SelectChangeEvent) => {
         setSelectedSubject(event.target.value as string);
@@ -88,23 +91,47 @@ export default function Game() {
                 </Box>
 
                 <Box sx={{ marginTop: 5 }}>
-                    <Button variant="contained">
+                    <Button variant="contained" onClick={(e) => { setIsReady(true) }}>
                         Proceed to Quiz
                     </Button>
                 </Box>
 
-                {selectedQuizType && (
-                    <Box sx={{ marginTop: 5, border:`2px solid ${blue[500]}` }}>
+                {selectedQuizType && isReady && (
+                    <Box sx={{ marginTop: 5, border: `2px solid ${blue[500]}` }}>
                         {selectedQuizType === 'Individual Quiz' && (
                             <IndividualQuiz subject={selectedSubject} topic={selectedTopic} />
                         )}
 
                         {selectedQuizType === 'Competition Quiz' && (
-                            <CompetitionQuiz subject={selectedSubject} topic={selectedTopic} />
+                            <Box sx={{ display: "flex", justifyContent: "center", flexDirection: 'column' }}>
+                                <Box sx={{ display: "flex", justifyContent: "center", alignItems:'center'}}>
+                                    <Typography variant="h5" sx={{ fontWeight: 'bold', textAlign: "center" }}>
+                                        Betting Amount
+                                    </Typography>
+
+                                    <TextField
+                                        id="betting-amount"
+                                        label="Betting Amount"
+                                        type="number"
+                                        defaultValue={5}
+                                        value={bettingAmount}
+                                        onChange={(event) => setBettingAmount(Number(event.target.value))}
+                                        sx={{ margin: '10px' }}
+                                        disabled={finalizeBet}
+                                        error={bettingAmount < 5}
+                                        helperText={bettingAmount < 5 ? 'Betting amount should be greater than 4' : ''}
+                                    />
+
+                                    <Button variant="contained" onClick={(e) => { setFinalizeBet(true) }}>
+                                        Search for users
+                                    </Button>
+                                </Box>
+                                <CompetitionQuiz subject={selectedSubject} topic={selectedTopic} />
+                            </Box>
                         )}
                     </Box>
                 )}
-                
+
 
             </Box>
         </>
