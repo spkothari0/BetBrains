@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Typography, Grid, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import Question from '../models/Question';
 
-export default function CompetitionQuiz(props: { subject: string, topic: string }) {
+export default function CompetitionQuiz(props: { subject: string, topic: string, amount: number }) {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [currentQuestionIndexUser1, setCurrentQuestionIndexUser1] = useState(0);
     const [currentQuestionIndexUser2, setCurrentQuestionIndexUser2] = useState(0);
@@ -93,7 +93,6 @@ export default function CompetitionQuiz(props: { subject: string, topic: string 
     };
 
     const handleStart = () => {
-        setTime(60); // Reset timer to initial value
         setCurrentQuestionIndexUser1(0); // Reset to first question for User 1
         setCurrentQuestionIndexUser2(0); // Reset to first question for User 2
         setSelectedAnswerUser1(null);
@@ -121,7 +120,7 @@ export default function CompetitionQuiz(props: { subject: string, topic: string 
     const seconds = time % 60;
 
     return (
-        <Box sx={{ m: 3 }}>
+        <Box sx={{ m: 3, display: 'flex', justifyContent: 'space-between', flexDirection:'column' }}>
             <Typography variant="h4">
                 Timer: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
             </Typography>

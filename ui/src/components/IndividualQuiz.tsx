@@ -7,7 +7,7 @@ export default function IndividualQuiz(props: { subject: string, topic: string }
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
     const [feedback, setFeedback] = useState<string | null>(null);
-    const [time, setTime] = useState(10); // Initial timer value
+    const [time, setTime] = useState(15); // Initial timer value
     const [quizComplete, setQuizComplete] = useState(false);
     const [timerStarted, setTimerStarted] = useState(false);
 
@@ -70,7 +70,6 @@ export default function IndividualQuiz(props: { subject: string, topic: string }
     };
 
     const handleStart = () => {
-        setTime(30); // Reset timer to initial value
         setCurrentQuestionIndex(0); // Reset to first question
         setSelectedAnswer(null);
         setFeedback(null);

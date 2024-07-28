@@ -104,7 +104,7 @@ export default function Game() {
 
                         {selectedQuizType === 'Competition Quiz' && (
                             <Box sx={{ display: "flex", justifyContent: "center", flexDirection: 'column' }}>
-                                <Box sx={{ display: "flex", justifyContent: "center", alignItems:'center'}}>
+                                <Box sx={{ display: "flex", justifyContent: "center", alignItems: 'center' }}>
                                     <Typography variant="h5" sx={{ fontWeight: 'bold', textAlign: "center" }}>
                                         Betting Amount
                                     </Typography>
@@ -126,7 +126,9 @@ export default function Game() {
                                         Search for users
                                     </Button>
                                 </Box>
-                                <CompetitionQuiz subject={selectedSubject} topic={selectedTopic} />
+                                {finalizeBet &&
+                                    <CompetitionQuiz subject={selectedSubject} topic={selectedTopic} amount={bettingAmount} />
+                                }
                             </Box>
                         )}
                     </Box>
