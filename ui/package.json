@@ -8,10 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.16.5",
+    "@mui/material-nextjs": "^5.16.4",
     "@rainbow-me/rainbowkit": "^2.1.3",
     "@tanstack/react-query": "^5.28.4",
     "next": "^14.2.5",
