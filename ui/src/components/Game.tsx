@@ -18,8 +18,8 @@ export interface QuizTypeOption {
 }
 
 export const quizTypes: QuizTypeOption[] = [
-    { id: 'Individual Quiz', description: 'Collect the points using the individual quiz by answering right for the provided questions. For each question, if the answer is provided before 5 sec, 2 points will be rewarded. Or else 1 point will be rewarded' },
-    { id: 'Competition Quiz', description: 'Bet with your competators on amount of points of your choice. Whoever wins will get all the points and other will loose the amount of point he bet on.' },
+    { id: 'Individual Quiz', description: 'Collect the tokens using the individual quiz by answering right for the provided questions. For each correct answer, 1 token will be rewarded' },
+    { id: 'Competition Quiz', description: 'Bet with your competators on amount of tokens of your choice. Whoever wins will get all the tokens and other will loose the tokens amount.' },
 ];
 
 export default function Game() {
