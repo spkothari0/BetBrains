@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 import { Grid, Box, Button } from '@mui/material';
 import Nav from './Nav';
+import GameTokenBalance from './GameTokenBalance.jsx'
 const HamburgerMenu=['User Details','Wallet'];
 
 const Wallet: React.FC = () => {
@@ -39,7 +40,7 @@ const Wallet: React.FC = () => {
                   selectedItem === 'Wallet' ? 
                     <Box sx={{display:"flex", flexDirection:'column', alignItems:'center'}}>
                       <Box sx={{fontSize: '20px', fontWeight: 'bold'}}>Wallet</Box>
-                      <Box sx={{fontSize: '16px', fontWeight: 'bold'}}><Nav></Nav></Box>
+                      <Box sx={{fontSize: '16px', fontWeight: 'bold'}}><Nav></Nav><GameTokenBalance></GameTokenBalance></Box>
                     </Box>               
                   : 
                   <Box sx={{display:"flex", flexDirection:'column', alignItems:'center'}}>
