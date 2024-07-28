@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import HeroBanner from '../components/HeroBanner';
 import Footer  from '../components/footer';
 import CssBaseline from '@mui/material/CssBaseline' 
+import Game from '../components/Game';
 const Home: NextPage = () => {
   const router = useRouter();
   return (
